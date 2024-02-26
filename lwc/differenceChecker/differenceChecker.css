@@ -1,0 +1,44 @@
+/* Basic styles for panels */
+.slds-panel {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Styling for panel headers */
+.slds-panel__header {
+    background-color: #f0f0f0;
+    padding: 5px;
+}
+
+/* Styling for the body of the panel */
+.editable-content {
+    border: 1px solid #ccc;
+    min-height: 150px;
+    padding: 5px;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+}
+
+/* Styling for the line comparison areas */
+.left-panel-lines,
+.right-panel-lines {
+    border: 1px solid #ccc;
+    min-height: 150px;
+    padding: 3px;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+    margin-top: 5px;
+}
+
+/* Styling for the arrow button */
+.arrow-button {
+    margin-top: 40px;
+    padding: 10px;
+}
+
+/* Stylize the lightning-icon within the button */
+.arrow-button lightning-icon {
+    fill: #333;
+}

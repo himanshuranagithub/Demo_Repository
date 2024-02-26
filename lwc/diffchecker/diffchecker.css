@@ -1,0 +1,12 @@
+/* codeDifference.css */
+.added {
+    background-color: lightgreen;
+}
+
+.removed {
+    background-color: lightcoral;
+}
+
+.unchanged {
+    background-color: white;
+}

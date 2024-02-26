@@ -1,0 +1,12 @@
+@isTest
+global class MakeCalloutOAuthMock implements HttpCalloutMock {
+    global HTTPResponse respond(HTTPRequest request) {
+        
+        String body = '{"access_token":"00D5j00000D2EEI!AQkAQNZubbqva3z8ynH_cK71t0zBgUPmmRySJ_PkKPqYFjxpQ5AQygoqUM.A1rU2QLQ645g8IUFu.WZdPhXBVCA9ER_aXY2N","refresh_token":"5Aep861mdLLi91HqFe7hAip3wvJ3KZ3VhClWW6DlWDLhKrA4PDaPVnV5pR0KfUT7iohsO46krqICF7bcipcS8k6","signature":"v7SGsIQ+2WZG7pXK4REKgzPuUE9EgR3jjLI5K4CuX8c=","scope":"cdp_ingest_api custom_permissions cdp_segment_api cdp_api content interaction_api cdp_identityresolution_api chatbot_api wave_api web einstein_gpt_api cdp_calculated_insight_api id api eclair_api pardot_api lightning visualforce cdp_query_api sfap_api openid cdp_profile_api refresh_token user_registration_api pwdless_login_api chatter_api forgot_password full","id_token":"eyJraWQiOiIyNDYiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiV0h0WVgzWnl4OEFmc3lfV05IaWQzUSIsInN1YiI6Imh0dHBzOi8vbG9naW4uc2FsZXNmb3JjZS5jb20vaWQvMDBENWowMDAwMEQyRUVJRUEzLzAwNTVqMDAwMDBBUnNOMEFBTCIsImF1ZCI6IjNNVkc5cFJ6dk1rak1iNmtFcG1xN3dwdGxVdEp2elM2am9aQnhmbVlRUjIuclVOMEJ2X1BkZGJPM3kxU2VIc3YxTnpiWDRieGdndksxVzVQcG1icW8iLCJpc3MiOiJodHRwczovL2xvZ2luLnNhbGVzZm9yY2UuY29tIiwiZXhwIjoxNjk4NzM0ODgwLCJpYXQiOjE2OTg3MzQ3NjB9.XDaudgJMzKB-ciLl2AJKP1uNWxbKjmF5nmVzwkTSeTzWk7qsNx596tFCRXGt4xDY9W3mC6JTWzDk-6p7uJqQ47iyMRgRiYmPLpmCCKvKx1Yx9C2X2mj6VWclcvC9X5PpgjWWoMHFYd1YizHR-S8cGcqaHC2jBLcuFlFrCTKkb8FOIw8FCsyAHmpftunI5cHjmJI5XkByw2CQRfiufejbJEdXgDd10VByUS88ejnHVvA2fABSTWIkcinNgnDN0LFu2wDyUodwnTfvbl-123N-jq6Le0dUYUaP79Bzt4ULqYsMdmZJ10aN-AWSnSud-EbeEKNBRHEspnuHMaRjtmLpqjwHEsLJqHGQ75jKuGMakriiykfAdhWJXoSg8CXNAhtX0Y4DmZCH9bBO2AmzWDnT47V9bt5VAusT_RueQmmun0wYA4vbFjFWxdR0eJFxhyGXce6FJZ2I2j7j0IkvU5OHOHrB0ZXmjIzbYaW4rWrJCJ_Z3EyEEjb6RiS-ODyhSHHALJ1Rk1fusBtoBGDbtKDpJ8AiXK_bGUkbkGSWzWF1NvKqtzP9sZM0paatW6F5diIbXy_2ARadDmYwrMszft9RjVdS5h3xLU0gJxhymNRhLeWvWLFFh-QU1ZKMTFr8aJcR0uJ4vXl2m9LI0BiUPfB-umJtLGGjLd6vcsFEmEMEk3w","instance_url":"https://girikon93-dev-ed.develop.my.salesforce.com","id":"https://login.salesforce.com/id/00D5j00000D2EEIEA3/0055j00000ARsN0AAL","token_type":"Bearer","issued_at":"1698734760061","api_instance_url":"https://api.salesforce.com"}';
+        HttpResponse response = new HttpResponse();
+        response.setHeader('Content-Type', 'application/json');
+        response.setBody(body);
+        response.setStatusCode(200);
+        return response; 
+    }
+}

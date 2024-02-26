@@ -1,0 +1,35 @@
+.deployment-container {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .progress-bar {
+        display: flex;
+    }
+
+    .step {
+        width: 20%;
+        height: 100px;
+        background-color: #4caf50;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: move;
+    }
+
+    .step.odd {
+        background-color: #2196F3;
+    }
+
+    .step-content {
+        color: #fff;
+        text-align: center;
+    }
+
+    .step button {
+        margin-top: 5px;
+    }

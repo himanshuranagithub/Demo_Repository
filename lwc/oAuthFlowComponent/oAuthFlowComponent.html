@@ -1,0 +1,25 @@
+<template>
+    <template if:true={showAuth}>
+        <lightning-button variant="brand" label="Authorize" title="Authorize" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </template>
+
+    <template if:false={showAuth}>
+        <lightning-button variant="brand" label="Authorize" title="Authorize" onclick={handleClick} class="slds-m-left_x-small" disabled></lightning-button>
+            <template if:false={accessToken}>
+                <lightning-button variant="brand" label="Get Access Token" title="GetAccessToken" onclick={handleClickAccess} class="slds-m-left_x-small"></lightning-button>
+                    <template if:true={showError}>
+                        <p>Error - {showError}</p>
+                        <p>Error Des - {errorMessage}</p>
+                </template>
+            </template>
+            <template if:true={accessToken}>
+                <lightning-button variant="brand" label="Get Access Token" title="GetAccessToken" onclick={handleClickAccess} class="slds-m-left_x-small" disabled></lightning-button>
+                <p>Current access token - {showAccessToken}</p><br/><br/>
+                <lightning-input type="text" variant="standard" name="name" label="Enter Account Name"></lightning-input>
+                <lightning-button variant="brand" label="Create Account" title="Primarty Action" onclick={handleAccountCreation} class="slds-m-left_x-small" ></lightning-button>
+                <template if:true={createdAccount}>
+                    <p>Newly created account in the org is - {createdAccount}</p>
+                </template>
+            </template>
+    </template>
+</template>

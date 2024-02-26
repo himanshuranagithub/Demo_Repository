@@ -1,0 +1,22 @@
+<template>
+    <div class="chart-container">
+      <div class="header">
+            <lightning-combobox
+                name="orgFilter"
+                label="Select Organization"
+                value={selectedOrgId}
+                options={orgOptions}
+                onchange={handleOrgChange}>
+            </lightning-combobox>
+        </div>
+
+        <div class="org-container slds-p-around_medium">
+            <template for:each={orgs} for:item="item" for:index="index">
+                <div key={item.id} class="org-item">
+                    <div class="org-box">{item.name} </div>  
+                    <div if:true={item.id} class="arrow">&#8594;</div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

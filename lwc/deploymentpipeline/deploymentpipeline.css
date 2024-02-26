@@ -1,0 +1,44 @@
+.chart-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .org-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .org-item {
+        display: flex; /* Use flexbox for org box and arrow */
+        align-items: center;
+    }
+
+    .org-box {
+        min-width: 100px;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background: linear-gradient(to bottom, #6ab7ff, #4285f4); /* Updated gradient colors */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+        transition: background 0.3s ease; /* Smooth transition effect */
+    }
+
+    .org-box:hover {
+        background: linear-gradient(to bottom, #4285f4, #6ab7ff); /* Updated gradient colors on hover */
+    }
+
+    .arrow {
+        padding: 0 15px;
+        font-size: 20px; /* Adjust the arrow size */
+    }
+
+    .header {
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        justify-content: flex-start;
+    }

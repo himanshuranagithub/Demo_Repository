@@ -1,0 +1,19 @@
+/* HorizontalTimeline.css */
+.slds-timeline {
+    /* Add styles for the timeline container */
+}
+
+.slds-timeline__list {
+    /* Add styles for the timeline list */
+    display: flex;
+    flex-direction: row;
+}
+
+.slds-timeline__item {
+    /* Add styles for each timeline item */
+    flex: 1;
+    max-width: 200px; /* Set a maximum width for each item */
+    /* Add additional styling as needed */
+}
+
+/* Customize styles based on your design requirements */

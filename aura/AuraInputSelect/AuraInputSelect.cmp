@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="tskList" type="List" default="['All', 'Pending', 'In-Progress', 'Completed']"/>
+    <ui:inputSelect aura:id="mytaskSelect" change="{!c.changeStatus}">
+        <aura:iteration items="{!v.tskList}" var="tsk">
+            <ui:inputSelectOption text="{!tsk}" label="{!tsk}"/>
+        </aura:iteration>
+    </ui:inputSelect>
+    
+</aura:component>

@@ -1,0 +1,118 @@
+<aura:component controller="MakeCalloutOAuth" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute name="orgOptions" type="object[]" description="Authenticated Organization list" />
+    <aura:attribute name="metaOrgOptions" type="List" description="Org metadata objects name list" />
+    <aura:attribute name="selectedOrg" type="string" default="" description="Selected organization name" />
+    <aura:attribute name="selectedsObject" type="string" default="" description="Selected sObject name" />
+    <aura:attribute name="showmetadatalist" type="boolean" default="false" />
+    <aura:attribute name="showspinner" type="boolean" default="false"/>
+    <aura:attribute name="sObjectFields" type="List" description="" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem size="12">
+            <div class="slds-card slds-p-around_medium">
+                <header class="slds-card__header">
+                    <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-utility-connected_apps" title="Connected Apps">
+                                <lightning:icon iconName="utility:connected_apps" size="small" alternativeText="Connected Apps" />
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <h2 class="slds-text-heading_medium slds-hyphenate">Get Org Metadata</h2>
+                        </div>
+                    </div>
+                </header>
+                <div class="slds-card__body slds-p-around_medium">
+                    <aura:if isTrue="{!v.showspinner}">
+                        <div role="" class="slds-spinner slds-spinner_medium">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                        <aura:set attribute="else">
+                            <fieldset class="slds-form-element slds-form-element_compound">
+                                <div class="slds-form-element__control">
+                                    <div class="slds-form-element__row">
+                                        <div class="slds-size_1-of-2">
+                                            <div class="slds-form-element">
+                                                <lightning:select name="orgSelect" label="Select Authorized Org" value="{!v.selectedOrg}" onchange="{!c.orgSelectChange}">
+                                                    <option text="-- Select an org --" value="" />
+                                                    <aura:iteration items="{!v.orgOptions}" var="org">
+                                                        <option text="{!org.Organization_Name__c}" value="{!org.Id}" />
+                                                    </aura:iteration>
+                                                </lightning:select>
+                                            </div>
+                                        </div>
+                                        <div class="slds-size_1-of-2">
+                                            <label class="slds-form-element__label" for="single-form-element-id-02">Label</label>
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element__control">
+                                                    <lightning:button  class="slds-button slds-button_brand" label="Get Metadata" onclick="{!c.getSobjects}" disabled="true" aura:id="getMetadataButton" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </aura:set>
+                    </aura:if> 
+                </div>
+                
+                <div class="slds-card__body slds-p-around_medium">
+                    <fieldset class="slds-form-element slds-form-element_compound">
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__row">
+                                <div class="slds-size_1-of-2">
+                                    <div class="slds-form-element">
+                                        <aura:if isTrue="{!v.showmetadatalist}">
+                                            <lightning:select name="" label="sObject Name" value="{!v.selectedsObject}" onchange="{!c.sObjectChange}">
+                                                <option text="-- Select an object --"  value=""  disabled="true" />
+                                                <aura:iteration items="{!v.metaOrgOptions}" var="sobj">
+                                                    <option text="{!sobj}" value="{!sobj}" />
+                                                </aura:iteration>
+                                            </lightning:select>
+                                        </aura:if>
+                                    </div>                
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr>
+                <th scope="col" style="width: 3rem;">
+                    <label class="slds-checkbox">
+                        <ui:inputCheckbox change="{!c.selectAll}" aura:id="selectAllCheckbox" />
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select All</span>
+                    </label>
+                </th>
+                <th scope="col">Field Name</th>
+                <!-- Add more headers for other fields as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.sObjectFields}" var="row">
+                <tr>
+                    <td data-label="Select">
+                        <label class="slds-checkbox">
+                            <ui:inputCheckbox value="{!row.selected}" />
+                            <span class="slds-checkbox--faux"></span>
+                            <span class="slds-assistive-text">Select Row</span>
+                        </label>
+                    </td>
+                    <td data-label="Field Name">{!row}</td>
+                    <!-- Add more data cells for other fields as needed -->
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

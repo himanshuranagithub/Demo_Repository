@@ -1,0 +1,30 @@
+<apex:page controller="MakeCalloutOAuth" showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" >
+    <apex:form >
+        <!-- Define action functions for getAccessToken and redirect -->
+        <apex:actionFunction name="callGetAccessToken" action="{!getAccessToken}" oncomplete="callRedirectMethod()" reRender="result" status="loading" />
+        <apex:actionFunction name="callRedirectMethod" action="{!redirect}" reRender="result" status="loading" />
+    </apex:form>
+    
+    <script>
+    
+    // JavaScript function to initiate the process
+    window.onload = function() {
+        
+        // Value of code from apex 
+        const code = '{!valueToEncode}';
+        
+        // Check if we have code to get access token 
+        if(code !== ''){
+            callGetAccessToken(); // Call the action function to get the access token
+        }else{
+            callRedirectMethod(); // Redirect to the record page if code is missing or error occured
+        }
+    }
+    
+    // JavaScript function to call the redirect method
+    function redirectToAnotherPage() {
+        // Call the action function to redirect
+        callRedirectMethod();
+    }
+    </script>
+</apex:page>

@@ -1,0 +1,10 @@
+<template>
+    <lightning-modal-header label="Deployment Status"></lightning-modal-header>
+    <lightning-modal-body>
+        <lightning-progress-indicator current-step="step-3" type="path" variant="base">
+        <template for:each={steps} for:item="step">
+            <lightning-progress-step label={step.label} value={step.value} key={step.label}></lightning-progress-step>
+        </template>
+    </lightning-progress-indicator>
+    </lightning-modal-body>   
+</template>

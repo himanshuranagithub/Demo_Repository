@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Code Comparator">
+        <div class="slds-p-around_medium">
+            <lightning-input
+                label="Left Code"
+                type="text"
+                value={leftCode}
+                onchange={handleLeftCodeChange}
+            ></lightning-input>
+
+            <lightning-input
+                label="Right Code"
+                type="text"
+                value={rightCode}
+                onchange={handleRightCodeChange}
+            ></lightning-input>
+
+            <lightning-button
+                label="Compare Code"
+                onclick={compareCode}
+                variant="brand"
+            ></lightning-button>
+
+            <div class="slds-p-top_medium">
+                <div class="code-container">
+                    <div class="code-column">
+                        <lightning-formatted-rich-text
+                            value={highlightedLeftCode}
+                        ></lightning-formatted-rich-text>
+                    </div>
+                    <div class="code-column">
+                        <lightning-formatted-rich-text
+                            value={highlightedRightCode}
+                        ></lightning-formatted-rich-text>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

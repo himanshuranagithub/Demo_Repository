@@ -1,0 +1,39 @@
+<template>
+    <div class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <div class="slds-col slds-size_1-of-1 slds-text-align_center">
+                <template if:false={isdiff}>
+                    <lightning-button onclick={compareText}  variant="brand" label="Find Difference" icon-position="right" title="find" icon-name="utility:search" class="slds-m-left_x-small"></lightning-button>
+                </template>
+                <template if:true={isdiff}>
+                    <lightning-button onclick={merge}  variant="brand" label="Merge" title="Merge" icon-name="utility:left" class="slds-m-left_x-small"></lightning-button>
+                </template>
+            </div>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+                    <div class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <h1 class="slds-truncate">Original Text</h1>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner">
+                            <div class="slds-panel__body editable-content" contenteditable="true" oninput={handleLeftPanelInput}></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <div class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <h1 class="slds-truncate">Changed Text</h1>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner">
+                            <div class="slds-panel__body editable-content" contenteditable="true" oninput={handleRightPanelInput}></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-panel__body merged-lines"></div>
+        </div>
+    </div>
+</template>

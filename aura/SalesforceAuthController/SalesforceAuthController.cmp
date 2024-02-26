@@ -1,0 +1,13 @@
+<aura:component controller="SalesforceAuth" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="consumerKey" type="String" />
+    <aura:attribute name="consumerSecret" type="String" />
+    <aura:attribute name="username" type="String" />
+    <aura:attribute name="password" type="String" />
+    <aura:attribute name="securityToken" type="String" />
+    
+    <div class="slds-card">
+        <lightning:button label="Authorize" class="slds-button slds-button_brand" onclick="{!c.authorize}" />
+    </div>
+    
+</aura:component>

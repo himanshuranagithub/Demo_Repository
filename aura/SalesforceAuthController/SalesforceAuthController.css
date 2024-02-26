@@ -1,0 +1,22 @@
+.THIS .slds-card {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the header */
+.THIS .slds-card__header {
+    text-align: center;
+}
+
+/* Style for the input fields */
+.THIS .slds-input {
+    margin-bottom: 10px;
+}
+
+/* Style for the authorize button */
+.THIS .slds-button_brand {
+    width: 100%;
+}
